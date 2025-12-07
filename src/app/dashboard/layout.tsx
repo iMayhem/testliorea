@@ -5,6 +5,8 @@ import { Logo } from "@/components/icons"
 import { UserNav } from "@/components/user-nav"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 
+export const runtime = 'edge'
+
 export default function DashboardLayout({
   children,
 }: {
