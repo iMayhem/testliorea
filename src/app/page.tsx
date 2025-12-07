@@ -29,7 +29,7 @@ const Countdown = ({ title, date }: { title: string, date: string }) => {
     hours?: number;
     minutes?: number;
     seconds?: number;
-  }>({});
+  } | null>(null);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -43,11 +43,12 @@ const Countdown = ({ title, date }: { title: string, date: string }) => {
           minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60)
         };
+      } else {
+        newTimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 }
       }
       return newTimeLeft;
     };
 
-    // Set initial time left
     setTimeLeft(calculateTimeLeft());
 
     const timer = setInterval(() => {
@@ -58,35 +59,34 @@ const Countdown = ({ title, date }: { title: string, date: string }) => {
   }, [date]);
 
 
-  const time = {
-    days: timeLeft.days || 0,
-    hours: timeLeft.hours || 0,
-    minutes: timeLeft.minutes || 0,
-    seconds: timeLeft.seconds || 0,
-  }
-
   return (
     <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white w-full">
       <CardHeader>
         <CardTitle className="text-lg">{title}</CardTitle>
       </CardHeader>
       <CardContent className="flex justify-between">
-        <div className="text-center">
-          <p className="text-4xl font-bold">{time.days}</p>
-          <p className="text-sm">Days</p>
-        </div>
-        <div className="text-center">
-          <p className="text-4xl font-bold">{time.hours}</p>
-          <p className="text-sm">Hours</p>
-        </div>
-        <div className="text-center">
-          <p className="text-4xl font-bold">{time.minutes}</p>
-          <p className="text-sm">Minutes</p>
-        </div>
-        <div className="text-center">
-          <p className="text-4xl font-bold">{time.seconds}</p>
-          <p className="text-sm">Seconds</p>
-        </div>
+        {!timeLeft ? (
+            <div className="text-center w-full">Loading...</div>
+        ) : (
+            <>
+                <div className="text-center">
+                <p className="text-4xl font-bold">{timeLeft.days}</p>
+                <p className="text-sm">Days</p>
+                </div>
+                <div className="text-center">
+                <p className="text-4xl font-bold">{timeLeft.hours}</p>
+                <p className="text-sm">Hours</p>
+                </div>
+                <div className="text-center">
+                <p className="text-4xl font-bold">{timeLeft.minutes}</p>
+                <p className="text-sm">Minutes</p>
+                </div>
+                <div className="text-center">
+                <p className="text-4xl font-bold">{timeLeft.seconds}</p>
+                <p className="text-sm">Seconds</p>
+                </div>
+            </>
+        )}
       </CardContent>
     </Card>
   );
