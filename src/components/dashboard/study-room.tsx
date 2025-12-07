@@ -91,9 +91,9 @@ export function StudyRoom() {
 
     return (
         <div className="flex flex-col h-[calc(100vh-8rem)]">
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-4 gap-4">
                 {participants.map((p, index) => (
-                    <Card key={p.id} className="relative overflow-hidden glassmorphism aspect-video">
+                    <Card key={p.id} className="relative overflow-hidden glassmorphism aspect-video md:col-span-2">
                         <CardContent className="p-0 h-full">
                             {index === 0 && isCameraOn ? (
                                 <video ref={localVideoRef} autoPlay muted playsInline className="h-full w-full object-cover"></video>
@@ -111,7 +111,7 @@ export function StudyRoom() {
                     </Card>
                 ))}
                 {isScreenSharing && (
-                     <Card className="relative overflow-hidden glassmorphism aspect-video md:col-span-2">
+                     <Card className="relative overflow-hidden glassmorphism aspect-video md:col-span-4">
                         <CardContent className="p-0 h-full">
                             <video ref={screenShareRef} autoPlay className="h-full w-full object-contain"></video>
                             <div className="absolute bottom-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">Your Screen Share</div>
