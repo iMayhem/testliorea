@@ -7,9 +7,10 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar"
-import { LayoutDashboard, User, Shield } from "lucide-react"
+import { Home, LayoutDashboard, User, Shield } from "lucide-react"
 
 const links = [
+  { href: "/", label: "Home", icon: Home },
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin", label: "Admin", icon: Shield },
   { href: "/profile", label: "Profile", icon: User },

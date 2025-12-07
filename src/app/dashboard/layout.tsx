@@ -1,4 +1,5 @@
 import React from "react"
+import Link from 'next/link'
 import {
   SidebarProvider,
   Sidebar,
@@ -32,9 +33,11 @@ export default function DashboardLayout({
         <div className="relative z-10 md:flex">
           <Sidebar>
             <SidebarHeader>
-              <Button variant="ghost" size="icon" className="w-fit h-fit p-1">
-                <Logo />
-              </Button>
+              <Link href="/">
+                <Button variant="ghost" size="icon" className="w-fit h-fit p-1">
+                  <Logo />
+                </Button>
+              </Link>
             </SidebarHeader>
             <SidebarContent>
               <MainNav />
@@ -46,9 +49,9 @@ export default function DashboardLayout({
               {/* Optional footer content */}
             </SidebarFooter>
           </Sidebar>
-          <div className="flex-1">
+          <div className="flex-1 flex flex-col">
             <DashboardHeader />
-            <main className="p-4 md:p-6">
+            <main className="p-4 md:p-6 flex-1">
               {children}
             </main>
           </div>

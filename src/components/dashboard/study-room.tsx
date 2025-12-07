@@ -41,7 +41,6 @@ export function StudyRoom() {
         } else {
             if (localVideoRef.current && localVideoRef.current.srcObject) {
                 (localVideoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
-                localVideoNode.current.srcObject = null;
             }
         }
     }, [isCameraOn])
@@ -90,10 +89,10 @@ export function StudyRoom() {
     }
 
     return (
-        <div className="flex flex-col h-[calc(100vh-8rem)]">
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col h-full">
+            <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-4">
                 {participants.map((p, index) => (
-                    <Card key={p.id} className="relative overflow-hidden glassmorphism">
+                    <Card key={p.id} className="relative overflow-hidden glassmorphism w-full h-full">
                         <CardContent className="p-0 h-full">
                             {index === 0 && isCameraOn ? (
                                 <video ref={localVideoRef} autoPlay muted playsInline className="h-full w-full object-cover"></video>
