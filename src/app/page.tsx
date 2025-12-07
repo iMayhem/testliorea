@@ -24,31 +24,46 @@ const communityUsers = [
 ]
 
 const Countdown = ({ title, date }: { title: string, date: string }) => {
-  const calculateTimeLeft = () => {
-    const difference = +new Date(date) - +new Date();
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
-      };
-    }
-
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<{
+    days?: number;
+    hours?: number;
+    minutes?: number;
+    seconds?: number;
+  }>({});
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const calculateTimeLeft = () => {
+      const difference = +new Date(date) - +new Date();
+      let newTimeLeft = {};
+
+      if (difference > 0) {
+        newTimeLeft = {
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        };
+      }
+      return newTimeLeft;
+    };
+
+    // Set initial time left
+    setTimeLeft(calculateTimeLeft());
+
+    const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearTimeout(timer);
-  });
+    return () => clearInterval(timer);
+  }, [date]);
+
+
+  const time = {
+    days: timeLeft.days || 0,
+    hours: timeLeft.hours || 0,
+    minutes: timeLeft.minutes || 0,
+    seconds: timeLeft.seconds || 0,
+  }
 
   return (
     <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white w-full">
@@ -57,19 +72,19 @@ const Countdown = ({ title, date }: { title: string, date: string }) => {
       </CardHeader>
       <CardContent className="flex justify-between">
         <div className="text-center">
-          <p className="text-4xl font-bold">{(timeLeft as any).days || '0'}</p>
+          <p className="text-4xl font-bold">{time.days}</p>
           <p className="text-sm">Days</p>
         </div>
         <div className="text-center">
-          <p className="text-4xl font-bold">{(timeLeft as any).hours || '0'}</p>
+          <p className="text-4xl font-bold">{time.hours}</p>
           <p className="text-sm">Hours</p>
         </div>
         <div className="text-center">
-          <p className="text-4xl font-bold">{(timeLeft as any).minutes || '0'}</p>
+          <p className="text-4xl font-bold">{time.minutes}</p>
           <p className="text-sm">Minutes</p>
         </div>
         <div className="text-center">
-          <p className="text-4xl font-bold">{(timeLeft as any).seconds || '0'}</p>
+          <p className="text-4xl font-bold">{time.seconds}</p>
           <p className="text-sm">Seconds</p>
         </div>
       </CardContent>
