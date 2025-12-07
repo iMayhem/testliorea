@@ -3,6 +3,7 @@
 import React from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
+  SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupContent,
 } from "@/components/ui/sidebar"
@@ -19,7 +20,7 @@ const leaderboardData: LeaderboardEntry[] = [
 
 export function Leaderboard() {
   return (
-    <>
+    <SidebarGroup>
       <SidebarGroupLabel>
         <Trophy />
         <span>Leaderboard</span>
@@ -41,6 +42,6 @@ export function Leaderboard() {
           ))}
         </div>
       </SidebarGroupContent>
-    </>
+    </SidebarGroup>
   )
 }

@@ -4,9 +4,7 @@ import {
   Sidebar,
   SidebarHeader,
   SidebarContent,
-  SidebarFooter,
-  SidebarInset,
-  SidebarGroup
+  SidebarFooter
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/icons"
@@ -31,8 +29,8 @@ export default function DashboardLayout({
             opacity: 0.5,
           }}
         />
-        <div className="relative z-10">
-          <Sidebar variant="inset" collapsible="icon">
+        <div className="relative z-10 md:flex">
+          <Sidebar>
             <SidebarHeader>
               <Button variant="ghost" size="icon" className="w-fit h-fit p-1">
                 <Logo />
@@ -40,26 +38,20 @@ export default function DashboardLayout({
             </SidebarHeader>
             <SidebarContent>
               <MainNav />
-              <SidebarGroup className="mt-auto" collapsible={false}>
-                <Leaderboard />
-              </SidebarGroup>
-              <SidebarGroup>
-                <TaskList />
-              </SidebarGroup>
-              <SidebarGroup>
-                <Chat />
-              </SidebarGroup>
+              <Leaderboard />
+              <TaskList />
+              <Chat />
             </SidebarContent>
             <SidebarFooter>
               {/* Optional footer content */}
             </SidebarFooter>
           </Sidebar>
-          <SidebarInset>
+          <div className="flex-1">
             <DashboardHeader />
             <main className="p-4 md:p-6">
               {children}
             </main>
-          </SidebarInset>
+          </div>
         </div>
       </div>
     </SidebarProvider>

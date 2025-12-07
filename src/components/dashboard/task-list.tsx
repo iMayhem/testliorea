@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {
+  SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupContent,
 } from "@/components/ui/sidebar"
@@ -41,7 +42,7 @@ export function TaskList() {
   }
 
   return (
-    <>
+    <SidebarGroup>
       <SidebarGroupLabel>
         <ListTodo />
         <span>Shared Tasks</span>
@@ -79,6 +80,6 @@ export function TaskList() {
           </Button>
         </form>
       </SidebarGroupContent>
-    </>
+    </SidebarGroup>
   )
 }

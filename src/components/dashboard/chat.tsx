@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {
+  SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupContent,
 } from "@/components/ui/sidebar"
@@ -30,7 +31,7 @@ const messages: ChatMessage[] = [
 
 export function Chat() {
   return (
-    <>
+    <SidebarGroup>
       <SidebarGroupLabel>
         <MessageSquare />
         <span>Group Chat</span>
@@ -71,6 +72,6 @@ export function Chat() {
         </form>
 
       </SidebarGroupContent>
-    </>
+    </SidebarGroup>
   )
 }
