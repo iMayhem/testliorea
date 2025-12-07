@@ -75,15 +75,15 @@ const Countdown = ({ title, date }: { title: string, date: string }) => {
                 <p className="text-sm">Days</p>
                 </div>
                 <div className="text-center">
-                <p className="text-4xl font-bold">{timeLeft.hours}</p>
+                <p className="text-4xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</p>
                 <p className="text-sm">Hours</p>
                 </div>
                 <div className="text-center">
-                <p className="text-4xl font-bold">{timeLeft.minutes}</p>
+                <p className="text-4xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</p>
                 <p className="text-sm">Minutes</p>
                 </div>
                 <div className="text-center">
-                <p className="text-4xl font-bold">{timeLeft.seconds}</p>
+                <p className="text-4xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</p>
                 <p className="text-sm">Seconds</p>
                 </div>
             </>
