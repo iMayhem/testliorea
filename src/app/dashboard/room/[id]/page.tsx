@@ -1,6 +1,5 @@
 'use client'
 import { StudyRoom } from "@/components/dashboard/study-room";
-export const runtime = 'edge'
 
 export default function DashboardRoomPage({ params }: { params: { id: string } }) {
   return (
