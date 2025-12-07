@@ -12,6 +12,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 import { Logo } from "@/components/icons"
 import { UserNav } from "@/components/user-nav"
+import { cn } from "@/lib/utils"
 
 
 const communityUsers = [
@@ -161,14 +162,17 @@ export default function HomePage() {
               onSelect={setDate}
               className="p-0"
               classNames={{
-                caption_label: "text-lg text-white",
-                head_cell: "text-gray-300 w-10",
-                day: "w-10 h-10 text-white",
-                day_selected:
-                  "bg-blue-500 text-white hover:bg-blue-600 focus:bg-blue-600",
-                day_today: "bg-blue-500/50 rounded-md",
-                day_outside: "text-gray-500",
-                nav_button: "text-white"
+                caption_label: "text-lg",
+                head_cell: "text-muted-foreground w-10",
+                day: "w-10 h-10",
+                day_selected: "bg-primary text-primary-foreground hover:bg-primary/90 focus:bg-primary/90",
+                day_today: "bg-accent text-accent-foreground",
+                day_outside: "text-muted-foreground opacity-50",
+                nav_button: cn(
+                  "absolute top-1 text-white",
+                ),
+                nav_button_previous: "left-1",
+                nav_button_next: "right-1",
               }}
             />
           </Card>
