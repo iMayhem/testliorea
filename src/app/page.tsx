@@ -99,7 +99,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen w-full bg-black text-white">
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-black/50 border-b border-gray-800">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-black border-b border-gray-800">
         <div className="flex items-center gap-4">
           <Logo className="h-8 w-8" />
           <h1 className="text-xl font-bold">Liorea</h1>
@@ -107,7 +107,6 @@ export default function HomePage() {
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/" className="text-sm font-medium hover:underline">Home</Link>
           <Link href="/dashboard" className="text-sm font-medium hover:underline">Study</Link>
-          <a href="#" className="text-sm font-medium hover:underline">JamNight</a>
           <a href="#" className="text-sm font-medium hover:underline">Help</a>
         </nav>
         <div className="flex items-center gap-4">
