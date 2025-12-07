@@ -61,7 +61,7 @@ const Countdown = ({ title, date }: { title: string, date: string }) => {
 
 
   return (
-    <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white w-full">
+    <Card className="bg-gray-900 border-gray-800 text-white w-full">
       <CardHeader>
         <CardTitle className="text-lg">{title}</CardTitle>
       </CardHeader>
@@ -98,8 +98,8 @@ export default function HomePage() {
   const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 11, 7))
 
   return (
-    <div className="min-h-screen w-full bg-cover bg-center text-white" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1534447677768-be436a0976f2?q=80&w=2070&auto=format&fit=crop')" }}>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-black/30 backdrop-blur-sm">
+    <div className="min-h-screen w-full bg-black text-white">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-black/50 border-b border-gray-800">
         <div className="flex items-center gap-4">
           <Logo className="h-8 w-8" />
           <h1 className="text-xl font-bold">Liorea</h1>
@@ -118,7 +118,7 @@ export default function HomePage() {
       <main className="pt-20 px-4 md:px-8 grid grid-cols-12 gap-8">
         {/* Left Community Sidebar */}
         <aside className="col-span-12 md:col-span-3">
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+          <Card className="bg-gray-900 border-gray-800 text-white">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg">Community</CardTitle>
               <Badge variant="secondary" className="bg-green-500/80 text-white border-none">1 Online</Badge>
@@ -153,9 +153,9 @@ export default function HomePage() {
           <Input
             type="text"
             placeholder="How are you feeling today?"
-            className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20 placeholder:text-gray-300 text-white"
+            className="w-full max-w-md bg-gray-900 border-gray-800 placeholder:text-gray-400 text-white"
           />
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+          <Card className="bg-gray-900 border-gray-800 text-white">
             <Calendar
               mode="single"
               selected={date}
@@ -181,9 +181,9 @@ export default function HomePage() {
           <Countdown title="NEET 2026 Countdown" date="2026-05-03T00:00:00" />
           
           <div className="fixed bottom-8 right-8 flex flex-col gap-4">
-             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12 text-white hover:bg-white/20"><Trophy /></Button>
-             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12 text-white hover:bg-white/20"><MessageSquare /></Button>
-             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12 text-white hover:bg-white/20"><Settings /></Button>
+             <Button variant="ghost" size="icon" className="rounded-full bg-gray-800 border-gray-700 h-12 w-12 text-white hover:bg-gray-700"><Trophy /></Button>
+             <Button variant="ghost" size="icon" className="rounded-full bg-gray-800 border-gray-700 h-12 w-12 text-white hover:bg-gray-700"><MessageSquare /></Button>
+             <Button variant="ghost" size="icon" className="rounded-full bg-gray-800 border-gray-700 h-12 w-12 text-white hover:bg-gray-700"><Settings /></Button>
           </div>
         </aside>
       </main>
