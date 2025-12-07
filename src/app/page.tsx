@@ -49,6 +49,7 @@ const Countdown = ({ title, date }: { title: string, date: string }) => {
       return newTimeLeft;
     };
 
+    // Set initial time left on mount, only on client
     setTimeLeft(calculateTimeLeft());
 
     const timer = setInterval(() => {
@@ -152,7 +153,7 @@ export default function HomePage() {
           <Input
             type="text"
             placeholder="How are you feeling today?"
-            className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20 placeholder:text-gray-300"
+            className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20 placeholder:text-gray-300 text-white"
           />
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
             <Calendar
@@ -161,12 +162,14 @@ export default function HomePage() {
               onSelect={setDate}
               className="p-0"
               classNames={{
-                caption_label: "text-lg",
+                caption_label: "text-lg text-white",
                 head_cell: "text-gray-300 w-10",
-                day: "w-10 h-10",
+                day: "w-10 h-10 text-white",
                 day_selected:
                   "bg-blue-500 text-white hover:bg-blue-600 focus:bg-blue-600",
                 day_today: "bg-blue-500/50 rounded-md",
+                day_outside: "text-gray-500",
+                nav_button: "text-white"
               }}
             />
           </Card>
@@ -178,9 +181,9 @@ export default function HomePage() {
           <Countdown title="NEET 2026 Countdown" date="2026-05-03T00:00:00" />
           
           <div className="fixed bottom-8 right-8 flex flex-col gap-4">
-             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12"><Trophy /></Button>
-             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12"><MessageSquare /></Button>
-             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12"><Settings /></Button>
+             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12 text-white hover:bg-white/20"><Trophy /></Button>
+             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12 text-white hover:bg-white/20"><MessageSquare /></Button>
+             <Button variant="ghost" size="icon" className="rounded-full bg-white/10 backdrop-blur-sm border-white/20 h-12 w-12 text-white hover:bg-white/20"><Settings /></Button>
           </div>
         </aside>
       </main>
