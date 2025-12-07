@@ -102,7 +102,6 @@ export function StudyRoom() {
                                     alt={p.name!}
                                     fill
                                     className="object-cover"
-                                    data-ai-hint="person portrait"
                                 />
                             )}
                             <div className="absolute bottom-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">{p.name}</div>

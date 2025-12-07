@@ -5,8 +5,6 @@ import { Logo } from "@/components/icons"
 import { UserNav } from "@/components/user-nav"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 
-export const runtime = 'edge'
-
 export default function DashboardLayout({
   children,
 }: {
@@ -22,7 +20,6 @@ export default function DashboardLayout({
           alt={studyBg.description}
           fill
           className="object-cover"
-          data-ai-hint={studyBg.imageHint}
         />
       )}
       <div className="absolute inset-0 bg-black/50" />
