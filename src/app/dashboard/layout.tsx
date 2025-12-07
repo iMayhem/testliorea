@@ -1,62 +1,50 @@
-import React from "react"
+import React from "react";
 import Link from 'next/link'
-import {
-  SidebarProvider,
-  Sidebar,
-  SidebarHeader,
-  SidebarContent,
-  SidebarFooter
-} from "@/components/ui/sidebar"
-import { Button } from "@/components/ui/button"
+import Image from 'next/image'
 import { Logo } from "@/components/icons"
-import { DashboardHeader } from "@/components/dashboard/header"
-import { MainNav } from "@/components/main-nav"
-import { TaskList } from "@/components/dashboard/task-list"
-import { Chat } from "@/components/dashboard/chat"
-import { Leaderboard } from "@/components/dashboard/leaderboard"
+import { UserNav } from "@/components/user-nav"
+import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const studyBg = PlaceHolderImages.find(img => img.id === 'study-bg');
+
   return (
-    <SidebarProvider>
-      <div className="relative min-h-screen">
-        <div 
-          className="absolute inset-0 bg-cover bg-center" 
-          style={{ 
-            backgroundImage: "url('/background-gradient.svg')",
-            opacity: 0.5,
-          }}
+    <div className="relative min-h-screen w-full bg-black text-white">
+      {studyBg && (
+        <Image
+          src={studyBg.imageUrl}
+          alt={studyBg.description}
+          fill
+          className="object-cover"
+          data-ai-hint={studyBg.imageHint}
         />
-        <div className="relative z-10 md:flex">
-          <Sidebar>
-            <SidebarHeader>
-              <Link href="/">
-                <Button variant="ghost" size="icon" className="w-fit h-fit p-1">
-                  <Logo />
-                </Button>
-              </Link>
-            </SidebarHeader>
-            <SidebarContent>
-              <MainNav />
-              <Leaderboard />
-              <TaskList />
-              <Chat />
-            </SidebarContent>
-            <SidebarFooter>
-              {/* Optional footer content */}
-            </SidebarFooter>
-          </Sidebar>
-          <div className="flex-1 flex flex-col">
-            <DashboardHeader />
-            <main className="p-4 md:p-6 flex-1">
-              {children}
-            </main>
-          </div>
+      )}
+      <div className="absolute inset-0 bg-black/50" />
+
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-black/30 backdrop-blur-sm border-b border-white/20">
+        <div className="flex items-center gap-4">
+          <Link href="/">
+            <Logo className="h-8 w-8" />
+          </Link>
+          <h1 className="text-xl font-bold">Liorea</h1>
         </div>
-      </div>
-    </SidebarProvider>
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="/" className="text-sm font-medium hover:underline">Home</Link>
+          <Link href="/dashboard" className="text-sm font-medium hover:underline">Study</Link>
+          <a href="#" className="text-sm font-medium hover:underline">Help</a>
+        </nav>
+        <div className="flex items-center gap-4">
+          <UserNav />
+        </div>
+      </header>
+      
+      <main className="relative z-10 flex min-h-screen items-center justify-center pt-16">
+        {children}
+      </main>
+    </div>
   )
 }

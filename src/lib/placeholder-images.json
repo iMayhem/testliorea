@@ -35,6 +35,12 @@
       "description": "Avatar for current user",
       "imageUrl": "https://images.unsplash.com/photo-1656582117510-3a177bf866c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwaGFwcHl8ZW58MHx8fHwxNzY1MTIwMTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person happy"
+    },
+    {
+      "id": "study-bg",
+      "description": "A girl looking over a cityscape at sunset.",
+      "imageUrl": "https://images.unsplash.com/photo-1759802524059-d7b48ae718ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YW5pbWUlMjBjaXR5c2NhcGV8ZW58MHx8fHwxNzY1MTMwNDQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "anime cityscape"
     }
   ]
 }
